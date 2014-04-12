@@ -1,7 +1,9 @@
 # Ubuntu 12.04 LTS and Python 2.4, 2.5, 2.6, 2.7, 3.1, 3.2, 3.3, 3.4, pypy
 FROM ubuntu:12.04
 MAINTAINER Takayuki SHIMIZUKAWA "shimizukawa@gmail.com"
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe\ndeb http://archive.ubuntu.com/ubuntu precise-updates main universe\ndeb http://archive.ubuntu.com/ubuntu precise-security main universe" > /etc/apt/sources.list
+run apt-get update && \
+    apt-get install -qq -y openssl
 run apt-get update && \
     apt-get install -qq -y python-software-properties && \
     add-apt-repository ppa:fkrull/deadsnakes && \
@@ -17,6 +19,5 @@ RUN apt-get install -qq -y \
     python3.3 \
     python3.4 \
     pypy
-run apt-get upgrade -y && \
-    apt-get clean && \
+run apt-get clean && \
     rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
