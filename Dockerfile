@@ -2,11 +2,11 @@
 FROM ubuntu:12.04
 MAINTAINER Takayuki SHIMIZUKAWA "shimizukawa@gmail.com"
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get install -qq -y python-software-properties
-RUN add-apt-repository ppa:fkrull/deadsnakes
-RUN add-apt-repository ppa:pypy/ppa
-RUN apt-get update
+run apt-get update && \
+    apt-get install -qq -y python-software-properties && \
+    add-apt-repository ppa:fkrull/deadsnakes && \
+    add-apt-repository ppa:pypy/ppa && \
+    apt-get update
 RUN apt-get install -qq -y \
     python2.4 \
     python2.5 \
@@ -16,3 +16,6 @@ RUN apt-get install -qq -y \
     python3.2 \
     python3.3 \
     pypy
+run apt-get upgrade -y && \
+    apt-get clean && \
+    rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
