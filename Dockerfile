@@ -15,6 +15,7 @@ RUN apt-get install -qq -y \
     python3.1 \
     python3.2 \
     python3.3 \
+    python3.4 \
     pypy
 run apt-get upgrade -y && \
     apt-get clean && \
