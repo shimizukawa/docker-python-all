@@ -1,5 +1,5 @@
 # Ubuntu 12.04 LTS and Python-dev package for 2.4, 2.5, 2.6, 2.7, 3.1, 3.2, 3.3, 3.4, pypy
-FROM shimizukawa/python-all
+FROM shimizukawa/python-all:ubuntu-12.04
 MAINTAINER Takayuki SHIMIZUKAWA "shimizukawa@gmail.com"
 RUN apt-get update
 RUN apt-get install -qq -y \
