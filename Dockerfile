@@ -1,12 +1,10 @@
-# Ubuntu latest and Python 2.4, 2.5, 2.6, 2.7, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, pypy
-FROM stackbrew/ubuntu:latest
+# Ubuntu 18.04 and Python 2.4, 2.5, 2.6, 2.7, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, pypy
+FROM ubuntu:18.04
 MAINTAINER Takayuki SHIMIZUKAWA "shimizukawa@gmail.com"
-RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe\ndeb http://archive.ubuntu.com/ubuntu trusty-updates main universe\ndeb http://archive.ubuntu.com/ubuntu trusty-security main universe" > /etc/apt/sources.list
 run apt-get update && \
     apt-get install -qq -y openssl
-run apt-get update && \
-    apt-get install -qq -y software-properties-common && \
-    add-apt-repository ppa:fkrull/deadsnakes && \
+run apt-get install -qq -y software-properties-common && \
+    add-apt-repository ppa:deadsnakes && \
     add-apt-repository ppa:pypy/ppa && \
     apt-get update
 RUN apt-get install -qq -y \
