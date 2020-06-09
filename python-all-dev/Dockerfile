@@ -1,4 +1,4 @@
-# Ubuntu and Python-dev package for 2.4, 2.5, 2.6, 2.7, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, pypy
+# Ubuntu and Python-dev package for 2.4, 2.5, 2.6, 2.7, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, pypy
 FROM shimizukawa/python-all
 MAINTAINER Takayuki SHIMIZUKAWA "shimizukawa@gmail.com"
 RUN apt-get update
@@ -14,6 +14,7 @@ RUN apt-get install -qq -y \
     python3.5-dev \
     python3.6-dev \
     python3.7-dev \
+    python3.8-dev \
     pypy-dev
 run apt-get clean && \
     rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
